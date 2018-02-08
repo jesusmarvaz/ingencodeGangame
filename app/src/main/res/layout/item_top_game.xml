@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <variable
+            name="topGame"
+            type="es.ingencode.gangame.TopGame">
+        </variable>
+    </data>
+
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="126dp"
+        app:cardBackgroundColor="@color/colorPrimaryDark">
+
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="8dp">
+
+            <ImageView
+                android:id="@+id/imgThumb"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginBottom="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                app:imageURL="@{topGame.thumb}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintDimensionRatio="2:1"
+                app:layout_constraintEnd_toStartOf="@+id/guideline"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <android.support.constraint.Guideline
+                android:id="@+id/guideline"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.25" />
+
+            <TextView
+                android:id="@+id/labelTitle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="4dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="4dp"
+                android:layout_marginTop="8dp"
+                android:maxLines="2"
+                android:text="@{topGame.title}"
+                android:textColor="@android:color/white"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toStartOf="@+id/labelPrice"
+                app:layout_constraintStart_toStartOf="@+id/guideline"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="Silence of the sleep"
+                tools:textColor="@android:color/white"
+                tools:textSize="16sp"
+                tools:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/labelSteamRating"
+                android:layout_width="0dp"
+                android:layout_height="16dp"
+                android:layout_marginTop="4dp"
+                android:text="@{String.valueOf(topGame.steamRating)}"
+                android:textColor="@color/blueGray"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                android:drawableLeft="@drawable/ic_steam_rating"
+                android:drawablePadding="4dp"
+                app:layout_constraintStart_toStartOf="@+id/labelPublisher"
+                app:layout_constraintTop_toBottomOf="@+id/labelPublisher"
+                tools:text="50"
+                tools:textColor="@color/blueGray"
+                tools:textSize="12sp"
+                tools:textStyle="bold"
+                tools:drawableLeft="@drawable/ic_steam_rating"
+                tools:drawablePadding="4dp"/>
+
+            <android.support.constraint.Guideline
+                android:id="@+id/guideline3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.8" />
+
+            <android.support.constraint.Guideline
+                android:id="@+id/guideline4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_percent="0.5" />
+
+            <TextView
+                android:id="@+id/labelPublisher"
+                android:layout_width="0dp"
+                android:layout_height="19dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginTop="8dp"
+                android:maxLines="1"
+                android:text="@{topGame.publisher}"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:textColor="@color/blueGray"
+                app:layout_constraintEnd_toStartOf="@+id/guideline3"
+                app:layout_constraintStart_toStartOf="@+id/labelTitle"
+                app:layout_constraintTop_toTopOf="@+id/guideline4"
+                tools:text="Valve"
+                tools:textColor="@color/blueGray" />
+
+            <TextView
+                android:id="@+id/labelOwners"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginLeft="8dp"
+                android:text="@{String.valueOf(topGame.owners)}"
+                android:textColor="@color/blueGray"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                android:drawableLeft="@drawable/ic_owners"
+                android:drawablePadding="4dp"
+                app:layout_constraintBaseline_toBaselineOf="@+id/labelSteamRating"
+                app:layout_constraintStart_toEndOf="@+id/labelSteamRating"
+                tools:text="775784"
+                tools:textColor="@color/blueGray"
+                tools:textSize="12sp"
+                tools:textStyle="bold"
+                tools:drawableLeft="@drawable/ic_owners"
+                tools:drawablePadding="4dp"/>
+
+            <TextView
+                android:id="@+id/labelPrice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginTop="8dp"
+                app:layout_constraintBottom_toTopOf="@+id/guideline4"
+                app:layout_constraintEnd_toStartOf="@+id/guideline3"
+                app:layout_constraintTop_toTopOf="@+id/labelTitle"
+                android:text="@{topGame.priceFormatted}"
+                android:textColor="@color/colorAccent"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                tools:text="$ 100.00"
+                tools:textColor="@color/colorAccent"
+                tools:textSize="12sp"
+                tools:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/labelPosition"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"
+                android:text="@{String.valueOf(topGame.position)}"
+                app:layout_constraintBottom_toTopOf="@+id/guideline4"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/guideline3"
+                app:layout_constraintTop_toTopOf="@+id/guideline4"
+                tools:text="1"
+                tools:textColor="@android:color/white"
+                tools:textSize="18sp"
+                tools:textStyle="bold" />
+
+        </android.support.constraint.ConstraintLayout>
+
+    </android.support.v7.widget.CardView>
+</layout>
